@@ -8,13 +8,14 @@
   ],
   "license": "BSD-3-Clause",
   "main": "build/timezone-scale.js",
-  "jsnext:main": "index",
+  "module": "index",
   "homepage": "https://github.com/jpuffer/d3-timezone-scale",
   "repository": {
     "type": "git",
     "url": "https://github.com/jpuffer/d3-timezone-scale.git"
   },
   "scripts": {
+    "build:cjs": "rollup -i src/timezone-scale.js -o build/timezone-scale.js --format cjs",
     "pretest": "rm -rf build && mkdir build && rollup -f umd -n d3 -o build/timezone-scale.js -- index.js",
     "test": "tape 'test/**/*-test.js'",
     "prepublish": "npm run test && uglifyjs build/timezone-scale.js -c -m -o build/timezone-scale.min.js",
